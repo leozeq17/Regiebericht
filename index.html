@@ -5,75 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#b8960c">
+<meta name="theme-color" content="#d4a017">
 <title>Regiebericht</title>
 <style>
   :root {
-    --primary: #9a7d0a;
-    --primary-light: #b8960c;
-    --primary-bg: #fef9e7;
+    --primary: #c49000;
+    --primary-light: #d4a017;
+    --primary-bg: #fef9e0;
     --accent: #c0392b;
-    --bg: #fdfcf5;
+    --bg: #fdfcf4;
     --card: #ffffff;
-    --border: #ddd6b8;
+    --border: #e0d9a8;
     --text: #2c2a17;
     --text-light: #7d7a5b;
-    --row-alt: #fdf8f3;
+    --row-alt: #fefcf0;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:13px;padding-bottom:60px}
 
-  /* HEADER */
   .app-header{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
   .app-header h1{font-size:17px;font-weight:700}
   .header-actions{display:flex;gap:5px;align-items:center}
-  .bericht-nr{background:rgba(255,255,255,0.2);padding:3px 8px;border-radius:4px;font-size:12px;font-weight:700}
+  .bericht-nr{background:rgba(255,255,255,0.25);padding:3px 8px;border-radius:4px;font-size:12px;font-weight:700}
   .btn{padding:6px 10px;border:none;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.2s}
   .btn-pdf{background:#fff;color:var(--primary)}
   .btn-clear{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3)}
 
-  /* CONTAINER */
   .container{max-width:900px;margin:0 auto;padding:10px}
-
-  /* SECTIONS */
   .section{background:var(--card);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin-bottom:10px}
   .section-header{background:var(--primary);color:#fff;padding:6px 12px;font-weight:600;font-size:12px;border-radius:8px 8px 0 0;text-transform:uppercase;letter-spacing:0.5px}
   .section-body{padding:10px}
 
-  /* FORM GRID - COMPACT */
   .form-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
   .form-row:last-child{margin-bottom:0}
   .fg{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
   .fg-2{flex:2}
   .fg label{font-size:9px;font-weight:600;color:var(--text-light);text-transform:uppercase;letter-spacing:0.4px}
   .iw{display:flex;align-items:center;border:1px solid var(--border);border-radius:4px;background:#fff}
-  .iw:focus-within{border-color:var(--primary-light);box-shadow:0 0 0 2px rgba(184,150,12,0.15)}
-  .iw input,.iw textarea{flex:1;border:none;padding:5px 7px;font-size:12px;font-family:inherit;color:var(--text);outline:none;background:transparent;min-width:0}
+  .iw:focus-within{border-color:var(--primary-light);box-shadow:0 0 0 2px rgba(212,160,23,0.15)}
+  .iw input,.iw textarea,.iw select{flex:1;border:none;padding:5px 7px;font-size:12px;font-family:inherit;color:var(--text);outline:none;background:transparent;min-width:0}
   .iw textarea{resize:vertical;min-height:38px;font-size:11px}
   .mic{background:none;border:none;padding:3px 5px;cursor:pointer;color:var(--text-light);font-size:16px;flex-shrink:0}
   .mic:hover{color:var(--primary)}
   .mic.recording{color:var(--accent);animation:pulse 1s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
 
-  /* WEEKLY TABLE */
   .week-table{width:100%;border-collapse:collapse;font-size:11px}
   .week-table th{background:var(--primary-bg);padding:4px 3px;text-align:center;font-weight:600;font-size:10px;color:var(--primary);border:1px solid var(--border);white-space:nowrap}
   .week-table th:first-child{text-align:left;min-width:100px;width:22%}
   .week-table th.day-col{width:13%}
   .week-table th.sum-col{width:9%;background:var(--primary);color:#fff}
   .week-table td{border:1px solid var(--border);padding:1px;vertical-align:middle;text-align:center}
-  .week-table td:first-child{text-align:left;padding:1px 3px}
+  .week-table td:first-child{text-align:left;padding:1px 2px}
   .week-table td.sum-cell{font-weight:700;color:var(--primary);background:var(--primary-bg);font-size:12px}
   .week-table tbody tr:nth-child(even){background:var(--row-alt)}
 
   .day-cell{display:flex;flex-direction:column;gap:0}
   .day-cell input[type="date"]{font-size:10px;padding:2px;border:none;background:transparent;text-align:center;color:var(--text-light);width:100%}
   .day-cell input[type="number"]{font-size:12px;padding:2px;border:none;background:transparent;text-align:center;font-weight:600;width:100%}
-  .day-cell input:focus{background:#fefce8;outline:none}
+  .day-cell input:focus{background:#fef9d0;outline:none}
+
   .name-cell{display:flex;align-items:center;gap:1px}
-  .name-cell input{flex:1;border:none;padding:3px 4px;font-size:11px;font-weight:500;background:transparent;min-width:0}
-  .name-cell input:focus{background:#fefce8;outline:none}
+  .name-cell input{flex:1;border:none;padding:3px 3px;font-size:11px;font-weight:500;background:transparent;min-width:0}
+  .name-cell input:focus{background:#fef9d0;outline:none}
   .name-cell .mic{font-size:13px;padding:2px 3px}
+  .role-sel{border:none;background:transparent;font-size:9px;font-weight:600;color:var(--primary);padding:1px 2px;cursor:pointer;width:auto;min-width:35px;max-width:45px;flex-shrink:0;text-align:center}
+  .role-sel:focus{outline:none;background:#fef9d0}
 
   .week-table .total-row td{background:var(--primary-bg);font-weight:700;font-size:12px;color:var(--primary);padding:4px 3px}
   .table-actions{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;border-top:1px solid #eee}
@@ -81,35 +78,29 @@
   .row-del{background:none;border:none;color:#ccc;cursor:pointer;font-size:14px;padding:2px}
   .row-del:hover{color:var(--accent)}
 
-  /* MATERIAL TABLE */
   .mat-table{width:100%;border-collapse:collapse;font-size:11px}
   .mat-table th{background:var(--primary-bg);padding:4px 5px;text-align:left;font-weight:600;font-size:10px;color:var(--primary);border:1px solid var(--border)}
   .mat-table td{border:1px solid var(--border);padding:1px 2px;vertical-align:middle}
   .mat-table tbody tr:nth-child(even){background:var(--row-alt)}
-  .mat-table td input{width:100%;border:none;padding:3px 4px;font-size:11px;background:transparent;font-family:inherit}
-  .mat-table td input:focus{background:#fefce8;outline:none}
+  .mat-table td input,.mat-table td select{width:100%;border:none;padding:3px 4px;font-size:11px;background:transparent;font-family:inherit}
+  .mat-table td input:focus,.mat-table td select:focus{background:#fef9d0;outline:none}
   .mat-table .cell-wrap{display:flex;align-items:center;gap:1px}
   .mat-table .cell-wrap input{flex:1;min-width:0}
   .mat-table .cell-wrap .mic{font-size:13px;padding:2px}
 
-  /* SIGNATURES */
   .sig-row{display:flex;gap:16px;margin-top:6px}
   .sig-box{flex:1;text-align:center}
   .sig-pad{border:1.5px dashed var(--border);border-radius:6px;height:60px;position:relative;cursor:crosshair;touch-action:none;display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:10px;margin-bottom:3px}
   .sig-pad canvas{position:absolute;top:0;left:0;width:100%;height:100%}
   .sig-label{font-size:10px;font-weight:600;color:var(--text-light);border-top:1px solid var(--text);padding-top:3px;display:inline-block;min-width:110px}
   .sig-clear{font-size:9px;color:var(--accent);background:none;border:none;cursor:pointer}
-
-  /* LEISTUNGSBESCHREIBUNG */
   .confirm-text{font-size:9px;color:var(--text-light);line-height:1.3;padding:4px 8px;background:var(--primary-bg);border-radius:4px;margin-bottom:6px}
 
-  /* OVERLAYS */
   .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:#333;color:#fff;padding:8px 16px;border-radius:6px;font-size:12px;opacity:0;transition:all 0.3s;z-index:200;pointer-events:none}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
   .speech-ind{position:fixed;top:58px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:5px 16px;border-radius:16px;font-size:11px;font-weight:600;z-index:150;display:none;align-items:center;gap:6px;cursor:pointer}
   .speech-ind.active{display:flex}
 
-  /* RESPONSIVE */
   @media(max-width:600px){
     .form-row{flex-direction:column;gap:4px}
     .fg{min-width:100%}
@@ -119,9 +110,9 @@
     .week-table th,.week-table td{font-size:9px;padding:2px 1px}
     .day-cell input[type="date"]{font-size:9px}
     .day-cell input[type="number"]{font-size:10px}
+    .role-sel{font-size:8px}
   }
 
-  /* PRINT - CRITICAL: ONE A4 PAGE */
   @media print{
     @page{size:A4 portrait;margin:8mm 6mm 8mm 6mm}
     html,body{width:210mm;height:297mm;overflow:hidden;background:#fff;font-size:9px;padding:0;margin:0}
@@ -130,17 +121,18 @@
     .section{box-shadow:none;border:1px solid #ccc;margin-bottom:4px;break-inside:avoid}
     .section-header{padding:3px 8px;font-size:9px;print-color-adjust:exact;-webkit-print-color-adjust:exact}
     .section-body{padding:4px 6px}
-    .print-header{display:flex!important;justify-content:space-between;align-items:center;padding:0 0 4px 0;border-bottom:2px solid var(--primary);margin-bottom:4px}
-    .print-title{font-size:16px;font-weight:700;color:var(--primary)}
-    .print-meta{font-size:9px;color:var(--text-light);text-align:right}
+    .print-header{display:flex!important;align-items:flex-start;padding:0 0 4px 0;border-bottom:2px solid var(--primary);margin-bottom:4px}
+    .print-title{font-size:16px;font-weight:700;color:var(--primary);text-align:left}
+    .print-meta{font-size:9px;color:var(--text-light);text-align:left;margin-left:20px}
     .fg label{font-size:7px}
-    .iw input{font-size:9px;padding:2px 4px}
+    .iw input,.iw select{font-size:9px;padding:2px 4px}
     .week-table th{font-size:8px;padding:2px}
     .week-table td{padding:1px}
     .day-cell input{font-size:8px!important;padding:1px!important}
     .name-cell input{font-size:8px}
+    .role-sel{font-size:7px!important;max-width:30px}
     .mat-table th{font-size:8px;padding:2px 3px}
-    .mat-table td input{font-size:8px;padding:1px 2px}
+    .mat-table td input,.mat-table td select{font-size:8px;padding:1px 2px}
     .confirm-text{font-size:7px;padding:2px 4px}
     .sig-pad{height:45px}
     .sig-label{font-size:8px}
@@ -165,96 +157,51 @@
   </div>
 </header>
 
-<div class="speech-ind" id="speechInd" onclick="stopRec()">
-  &#9899; Aufnahme... (Tippen=Stopp)
-</div>
+<div class="speech-ind" id="speechInd" onclick="stopRec()">&#9899; Aufnahme... (Tippen=Stopp)</div>
 
 <div class="container" id="content">
-
-  <!-- PRINT HEADER -->
   <div class="print-header" id="printHead">
     <div class="print-title">Regiebericht Nr. <span id="printNr">001</span></div>
-    <div class="print-meta">
-      <span id="printDatum"></span><br>
-      <span id="printBauvorhaben"></span>
-    </div>
+    <div class="print-meta"><span id="printDatum"></span><br><span id="printBauvorhaben"></span></div>
   </div>
 
-  <!-- PROJEKTDATEN -->
   <div class="section">
     <div class="section-header">Projektdaten</div>
     <div class="section-body">
       <div class="form-row">
-        <div class="fg fg-2">
-          <label>Bauvorhaben</label>
-          <div class="iw"><input type="text" id="bauvorhaben" placeholder="Bauvorhaben"><button class="mic no-print" onclick="startS('bauvorhaben')">&#127908;</button></div>
-        </div>
-        <div class="fg">
-          <label>Kunde</label>
-          <div class="iw"><input type="text" id="kunde" placeholder="Kunde"><button class="mic no-print" onclick="startS('kunde')">&#127908;</button></div>
-        </div>
-        <div class="fg">
-          <label>Datum</label>
-          <div class="iw"><input type="date" id="datum"></div>
-        </div>
+        <div class="fg fg-2"><label>Bauvorhaben</label><div class="iw"><input type="text" id="bauvorhaben" placeholder="Bauvorhaben"><button class="mic no-print" onclick="startS('bauvorhaben')">&#127908;</button></div></div>
+        <div class="fg"><label>Kunde</label><div class="iw"><input type="text" id="kunde" placeholder="Kunde"><button class="mic no-print" onclick="startS('kunde')">&#127908;</button></div></div>
+        <div class="fg"><label>Datum</label><div class="iw"><input type="date" id="datum"></div></div>
       </div>
       <div class="form-row">
-        <div class="fg">
-          <label>BRZ-Nummer</label>
-          <div class="iw"><input type="text" id="brzNr" placeholder="BRZ-Nr."></div>
-        </div>
-        <div class="fg">
-          <label>Kostenstelle</label>
-          <div class="iw"><input type="text" id="kostenstelle" placeholder="KSt"><button class="mic no-print" onclick="startS('kostenstelle')">&#127908;</button></div>
-        </div>
-        <div class="fg">
-          <label>Ersteller</label>
-          <div class="iw"><input type="text" id="ersteller" placeholder="Name"><button class="mic no-print" onclick="startS('ersteller')">&#127908;</button></div>
-        </div>
+        <div class="fg"><label>BRZ-Nummer</label><div class="iw"><input type="text" id="brzNr" placeholder="BRZ-Nr."></div></div>
+        <div class="fg"><label>Kostenstelle</label><div class="iw"><input type="text" id="kostenstelle" placeholder="KSt"><button class="mic no-print" onclick="startS('kostenstelle')">&#127908;</button></div></div>
+        <div class="fg"><label>Ersteller</label><div class="iw"><input type="text" id="ersteller" placeholder="Name"><button class="mic no-print" onclick="startS('ersteller')">&#127908;</button></div></div>
       </div>
       <div class="form-row">
-        <div class="fg fg-2">
-          <label>Stra&szlig;e / Haus-Nr.</label>
-          <div class="iw"><input type="text" id="strasse" placeholder="Adresse"><button class="mic no-print" onclick="startS('strasse')">&#127908;</button></div>
-        </div>
-        <div class="fg">
-          <label>Ort</label>
-          <div class="iw"><input type="text" id="ort" placeholder="PLZ / Ort"><button class="mic no-print" onclick="startS('ort')">&#127908;</button></div>
-        </div>
+        <div class="fg fg-2"><label>Stra&szlig;e / Haus-Nr.</label><div class="iw"><input type="text" id="strasse" placeholder="Adresse"><button class="mic no-print" onclick="startS('strasse')">&#127908;</button></div></div>
+        <div class="fg"><label>Ort</label><div class="iw"><input type="text" id="ort" placeholder="PLZ / Ort"><button class="mic no-print" onclick="startS('ort')">&#127908;</button></div></div>
       </div>
     </div>
   </div>
 
-  <!-- LEISTUNGEN / PERSONAL - WOCHENRASTER -->
   <div class="section">
     <div class="section-header">Leistungen / Personal</div>
     <div class="section-body" style="padding:4px">
       <table class="week-table">
-        <thead>
-          <tr>
-            <th>Mitarbeiter</th>
-            <th class="day-col">Mo</th>
-            <th class="day-col">Di</th>
-            <th class="day-col">Mi</th>
-            <th class="day-col">Do</th>
-            <th class="day-col">Fr</th>
-            <th class="sum-col">&#931;</th>
-            <th style="width:24px" class="no-print"></th>
-          </tr>
-        </thead>
+        <thead><tr>
+          <th>Mitarbeiter</th>
+          <th class="day-col">Mo</th><th class="day-col">Di</th><th class="day-col">Mi</th><th class="day-col">Do</th><th class="day-col">Fr</th>
+          <th class="sum-col">&#931;</th>
+          <th style="width:24px" class="no-print"></th>
+        </tr></thead>
         <tbody id="personalBody"></tbody>
-        <tfoot>
-          <tr class="total-row">
-            <td style="text-align:right;padding-right:6px">Gesamt:</td>
-            <td id="sumMo">-</td>
-            <td id="sumDi">-</td>
-            <td id="sumMi">-</td>
-            <td id="sumDo">-</td>
-            <td id="sumFr">-</td>
-            <td class="sum-cell" id="sumTotal">0</td>
-            <td class="no-print"></td>
-          </tr>
-        </tfoot>
+        <tfoot><tr class="total-row">
+          <td style="text-align:right;padding-right:6px">Gesamt:</td>
+          <td id="sumMo">-</td><td id="sumDi">-</td><td id="sumMi">-</td><td id="sumDo">-</td><td id="sumFr">-</td>
+          <td class="sum-cell" id="sumTotal">0</td>
+          <td class="no-print"></td>
+        </tr></tfoot>
       </table>
       <div class="table-actions">
         <button class="add-btn no-print" onclick="addPersonRow()">+ Mitarbeiter</button>
@@ -263,19 +210,16 @@
     </div>
   </div>
 
-  <!-- MATERIAL / GERAETE ZUSAMMEN -->
   <div class="section">
     <div class="section-header">Material / Ger&auml;te</div>
     <div class="section-body" style="padding:4px">
       <table class="mat-table">
-        <thead>
-          <tr>
-            <th style="width:50%">Bezeichnung</th>
-            <th style="width:18%">Menge</th>
-            <th style="width:22%">Einheit</th>
-            <th style="width:24px" class="no-print"></th>
-          </tr>
-        </thead>
+        <thead><tr>
+          <th style="width:50%">Bezeichnung</th>
+          <th style="width:18%">Menge</th>
+          <th style="width:22%">Einheit</th>
+          <th style="width:24px" class="no-print"></th>
+        </tr></thead>
         <tbody id="matBody"></tbody>
       </table>
       <div class="table-actions">
@@ -285,68 +229,35 @@
     </div>
   </div>
 
-  <!-- LEISTUNGSBESCHREIBUNG -->
   <div class="section">
     <div class="section-header">Leistungsbeschreibung / Bemerkungen</div>
     <div class="section-body" style="padding:6px">
-      <div class="iw">
-        <textarea id="bemerkungen" rows="2" placeholder="Durchgef&uuml;hrte Arbeiten, Besonderheiten..."></textarea>
-        <button class="mic no-print" onclick="startS('bemerkungen')" style="align-self:flex-start;margin-top:4px">&#127908;</button>
-      </div>
+      <div class="iw"><textarea id="bemerkungen" rows="2" placeholder="Durchgef&uuml;hrte Arbeiten, Besonderheiten..."></textarea><button class="mic no-print" onclick="startS('bemerkungen')" style="align-self:flex-start;margin-top:4px">&#127908;</button></div>
     </div>
   </div>
 
-  <!-- UNTERSCHRIFTEN -->
   <div class="section">
     <div class="section-header">Best&auml;tigung &amp; Unterschriften</div>
     <div class="section-body" style="padding:6px">
-      <div class="confirm-text">
-        Hiermit wird best&auml;tigt, dass die aufgef&uuml;hrten Leistungen, Materialien und Ger&auml;te wie beschrieben erbracht bzw. eingesetzt wurden.
-      </div>
+      <div class="confirm-text">Hiermit wird best&auml;tigt, dass die aufgef&uuml;hrten Leistungen, Materialien und Ger&auml;te wie beschrieben erbracht bzw. eingesetzt wurden.</div>
       <div class="sig-row">
-        <div class="sig-box">
-          <div class="sig-pad" id="sig1"><canvas></canvas><span class="sig-placeholder">Unterschrift</span></div>
-          <div class="sig-label">Bauleitung</div>
-          <button class="sig-clear no-print" onclick="clrSig('sig1')">L&ouml;schen</button>
-        </div>
-        <div class="sig-box">
-          <div class="sig-pad" id="sig2"><canvas></canvas><span class="sig-placeholder">Unterschrift</span></div>
-          <div class="sig-label">Auftraggeber</div>
-          <button class="sig-clear no-print" onclick="clrSig('sig2')">L&ouml;schen</button>
-        </div>
+        <div class="sig-box"><div class="sig-pad" id="sig1"><canvas></canvas><span class="sig-placeholder">Unterschrift</span></div><div class="sig-label">Bauleitung</div><button class="sig-clear no-print" onclick="clrSig('sig1')">L&ouml;schen</button></div>
+        <div class="sig-box"><div class="sig-pad" id="sig2"><canvas></canvas><span class="sig-placeholder">Unterschrift</span></div><div class="sig-label">Auftraggeber</div><button class="sig-clear no-print" onclick="clrSig('sig2')">L&ouml;schen</button></div>
       </div>
     </div>
   </div>
-
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-/* ===== REPORT NUMBER ===== */
 var rNr=1;
-try{var sv=localStorage.getItem('regie_nr2');if(sv)rNr=parseInt(sv,10)||1}catch(e){}
+try{var sv=localStorage.getItem('regie_nr3');if(sv)rNr=parseInt(sv,10)||1}catch(e){}
+function showNr(){var n=String(rNr).padStart(3,'0');document.getElementById('nrDisp').textContent='Nr. '+n;document.getElementById('printNr').textContent=n}
+function nextNr(){rNr++;try{localStorage.setItem('regie_nr3',String(rNr))}catch(e){}showNr()}
 
-function showNr(){
-  var n=String(rNr).padStart(3,'0');
-  document.getElementById('nrDisp').textContent='Nr. '+n;
-  document.getElementById('printNr').textContent=n;
-}
-function nextNr(){
-  rNr++;
-  try{localStorage.setItem('regie_nr2',String(rNr))}catch(e){}
-  showNr();
-}
-
-/* ===== SPEECH ===== */
 var rec=null,recT=null;
-function stopRec(){
-  if(rec){try{rec.abort()}catch(e){}rec=null}
-  if(recT){clearTimeout(recT);recT=null}
-  document.getElementById('speechInd').classList.remove('active');
-  var bs=document.querySelectorAll('.mic.recording');
-  for(var i=0;i<bs.length;i++)bs[i].classList.remove('recording');
-}
+function stopRec(){if(rec){try{rec.abort()}catch(e){}rec=null}if(recT){clearTimeout(recT);recT=null}document.getElementById('speechInd').classList.remove('active');var bs=document.querySelectorAll('.mic.recording');for(var i=0;i<bs.length;i++)bs[i].classList.remove('recording')}
 function doRec(el){
   var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){toast('Bitte Chrome verwenden');return}
@@ -356,188 +267,94 @@ function doRec(el){
   var w=el.closest('.iw')||el.closest('.cell-wrap')||el.closest('.name-cell');
   var m=w?w.querySelector('.mic'):null;
   ind.classList.add('active');if(m)m.classList.add('recording');
-  r.onresult=function(e){
-    var t='';for(var i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;
-    el.value=el.value&&el.value.trim()?el.value.trim()+' '+t:t;
-    el.dispatchEvent(new Event('input',{bubbles:true}));
-    el.dispatchEvent(new Event('change',{bubbles:true}));
-  };
+  r.onresult=function(e){var t='';for(var i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;el.value=el.value&&el.value.trim()?el.value.trim()+' '+t:t;el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}))};
   r.onerror=function(e){if(e.error!=='aborted'&&e.error!=='no-speech')toast('Fehler: '+e.error)};
   r.onend=function(){ind.classList.remove('active');if(m)m.classList.remove('recording');rec=null;if(recT){clearTimeout(recT);recT=null}};
-  rec=r;
-  try{r.start()}catch(e){stopRec();toast('Mikrofon nicht verfuegbar');return}
+  rec=r;try{r.start()}catch(e){stopRec();toast('Mikrofon nicht verfuegbar');return}
   recT=setTimeout(stopRec,15000);
 }
 function startS(id){var el=document.getElementById(id);if(el)doRec(el)}
 function startSC(el){if(el)doRec(el)}
 
-/* ===== PERSONAL TABLE (WEEKLY) ===== */
 function addPersonRow(){
-  var tb=document.getElementById('personalBody');
-  var tr=document.createElement('tr');
-  tr.innerHTML=
-    '<td><div class="name-cell">'+
-      '<input type="text" placeholder="Name" class="p-name">'+
-      '<button class="mic no-print" onclick="startSC(this.closest(\'.name-cell\').querySelector(\'input\'))">&#127908;</button>'+
-    '</div></td>'+
-    '<td><div class="day-cell">'+
-      '<input type="date" class="p-date" tabindex="-1">'+
-      '<input type="number" step="0.5" class="p-h" placeholder="-" oninput="calcAll()">'+
-    '</div></td>'+
-    '<td><div class="day-cell">'+
-      '<input type="date" class="p-date" tabindex="-1">'+
-      '<input type="number" step="0.5" class="p-h" placeholder="-" oninput="calcAll()">'+
-    '</div></td>'+
-    '<td><div class="day-cell">'+
-      '<input type="date" class="p-date" tabindex="-1">'+
-      '<input type="number" step="0.5" class="p-h" placeholder="-" oninput="calcAll()">'+
-    '</div></td>'+
-    '<td><div class="day-cell">'+
-      '<input type="date" class="p-date" tabindex="-1">'+
-      '<input type="number" step="0.5" class="p-h" placeholder="-" oninput="calcAll()">'+
-    '</div></td>'+
-    '<td><div class="day-cell">'+
-      '<input type="date" class="p-date" tabindex="-1">'+
-      '<input type="number" step="0.5" class="p-h" placeholder="-" oninput="calcAll()">'+
-    '</div></td>'+
-    '<td class="sum-cell" data-rowsum>0</td>'+
-    '<td class="no-print"><button class="row-del" onclick="this.closest(\'tr\').remove();calcAll()">&#10005;</button></td>';
-  tb.appendChild(tr);
-
-  // Auto-fill week dates
-  autoFillWeek(tr);
+  var tb=document.getElementById('personalBody');var tr=document.createElement('tr');
+  tr.innerHTML='<td><div class="name-cell"><input type="text" placeholder="Name" class="p-name"><select class="role-sel" title="Rolle"><option value="">--</option><option value="BL">BL</option><option value="Po">Po</option><option value="VoA">VoA</option><option value="FA">FA</option><option value="SpB">SpB</option><option value="Hel">Hel</option></select><button class="mic no-print" onclick="startSC(this.closest(\'.name-cell\').querySelector(\'input\'))">&#127908;</button></div></td>'+
+  '<td><div class="day-cell"><input type="date" class="p-date" tabindex="-1"><input type="number" step="0.5" class="p-h" placeholder="-" oninput="calcAll()"></div></td>'+
+  '<td><div class="day-cell"><input type="date" class="p-date" tabindex="-1"><input type="number" step="0.5" class="p-h" placeholder="-" oninput="calcAll()"></div></td>'+
+  '<td><div class="day-cell"><input type="date" class="p-date" tabindex="-1"><input type="number" step="0.5" class="p-h" placeholder="-" oninput="calcAll()"></div></td>'+
+  '<td><div class="day-cell"><input type="date" class="p-date" tabindex="-1"><input type="number" step="0.5" class="p-h" placeholder="-" oninput="calcAll()"></div></td>'+
+  '<td><div class="day-cell"><input type="date" class="p-date" tabindex="-1"><input type="number" step="0.5" class="p-h" placeholder="-" oninput="calcAll()"></div></td>'+
+  '<td class="sum-cell" data-rowsum>0</td>'+
+  '<td class="no-print"><button class="row-del" onclick="this.closest(\'tr\').remove();calcAll()">&#10005;</button></td>';
+  tb.appendChild(tr);autoFillWeek(tr);
 }
 
 function autoFillWeek(tr){
-  // Get the main date or use today
-  var base = document.getElementById('datum').value;
-  var d = base ? new Date(base) : new Date();
-  // Find Monday of that week
-  var day = d.getDay(); // 0=Sun
-  var diff = day===0 ? -6 : 1-day;
-  var monday = new Date(d);
-  monday.setDate(d.getDate()+diff);
-
-  var dates = tr.querySelectorAll('.p-date');
-  for(var i=0;i<dates.length;i++){
-    var dd = new Date(monday);
-    dd.setDate(monday.getDate()+i);
-    dates[i].value = dd.toISOString().split('T')[0];
-  }
+  var base=document.getElementById('datum').value;var d=base?new Date(base):new Date();
+  var day=d.getDay();var diff=day===0?-6:1-day;var monday=new Date(d);monday.setDate(d.getDate()+diff);
+  var dates=tr.querySelectorAll('.p-date');
+  for(var i=0;i<dates.length;i++){var dd=new Date(monday);dd.setDate(monday.getDate()+i);dates[i].value=dd.toISOString().split('T')[0]}
 }
 
 function calcAll(){
-  var rows = document.querySelectorAll('#personalBody tr');
-  var daySums=[0,0,0,0,0], total=0;
-  for(var r=0;r<rows.length;r++){
-    var hs=rows[r].querySelectorAll('.p-h');
-    var rowSum=0;
-    for(var c=0;c<hs.length;c++){
-      var v=parseFloat(hs[c].value)||0;
-      daySums[c]+=v;
-      rowSum+=v;
-    }
-    rows[r].querySelector('[data-rowsum]').textContent=rowSum>0?rowSum.toFixed(1).replace('.0',''):'0';
-    total+=rowSum;
-  }
+  var rows=document.querySelectorAll('#personalBody tr');var daySums=[0,0,0,0,0],total=0;
+  for(var r=0;r<rows.length;r++){var hs=rows[r].querySelectorAll('.p-h');var rowSum=0;
+    for(var c=0;c<hs.length;c++){var v=parseFloat(hs[c].value)||0;daySums[c]+=v;rowSum+=v}
+    rows[r].querySelector('[data-rowsum]').textContent=rowSum>0?rowSum.toFixed(1).replace('.0',''):'0';total+=rowSum}
   var ids=['sumMo','sumDi','sumMi','sumDo','sumFr'];
-  for(var i=0;i<ids.length;i++){
-    document.getElementById(ids[i]).textContent=daySums[i]>0?daySums[i].toFixed(1).replace('.0',''):'-';
-  }
+  for(var i=0;i<ids.length;i++){document.getElementById(ids[i]).textContent=daySums[i]>0?daySums[i].toFixed(1).replace('.0',''):'-'}
   document.getElementById('sumTotal').textContent=total>0?total.toFixed(1).replace('.0',''):'0';
   document.getElementById('sumStd').textContent=total.toFixed(2).replace('.',',');
 }
 
-/* Recalc week dates when main datum changes */
-document.addEventListener('change',function(e){
-  if(e.target.id==='datum'){
-    var rows=document.querySelectorAll('#personalBody tr');
-    for(var i=0;i<rows.length;i++) autoFillWeek(rows[i]);
-  }
-});
+document.addEventListener('change',function(e){if(e.target.id==='datum'){var rows=document.querySelectorAll('#personalBody tr');for(var i=0;i<rows.length;i++)autoFillWeek(rows[i])}});
 
-/* ===== MATERIAL TABLE ===== */
 function addMatRow(){
-  var tb=document.getElementById('matBody');
-  var tr=document.createElement('tr');
-  tr.innerHTML=
-    '<td><div class="cell-wrap">'+
-      '<input type="text" placeholder="Material / Ger&auml;t">'+
-      '<button class="mic no-print" onclick="startSC(this.closest(\'.cell-wrap\').querySelector(\'input\'))">&#127908;</button>'+
-    '</div></td>'+
-    '<td><input type="number" step="0.01" placeholder="0"></td>'+
-    '<td><div class="cell-wrap">'+
-      '<input type="text" placeholder="Einheit" list="einheiten">'+
-      '<button class="mic no-print" onclick="startSC(this.closest(\'.cell-wrap\').querySelector(\'input\'))">&#127908;</button>'+
-    '</div></td>'+
-    '<td class="no-print"><button class="row-del" onclick="this.closest(\'tr\').remove()">&#10005;</button></td>';
+  var tb=document.getElementById('matBody');var tr=document.createElement('tr');
+  tr.innerHTML='<td><div class="cell-wrap"><input type="text" placeholder="Material / Ger\u00e4t"><button class="mic no-print" onclick="startSC(this.closest(\'.cell-wrap\').querySelector(\'input\'))">&#127908;</button></div></td>'+
+  '<td><input type="number" step="0.01" placeholder="0"></td>'+
+  '<td><select class="unit-sel"><option value="">--</option><option>Stk</option><option>m</option><option>m\u00B2</option><option>m\u00B3</option><option>lfm</option><option>kg</option><option>t</option><option>l</option><option>Sack</option><option>Palette</option><option>Karton</option><option>Paar</option><option>Rolle</option><option>Platte</option><option>Bund</option><option>Ladung</option><option>Std</option><option>Tag</option><option>Pauschale</option></select></td>'+
+  '<td class="no-print"><button class="row-del" onclick="this.closest(\'tr\').remove()">&#10005;</button></td>';
   tb.appendChild(tr);
 }
 
-/* ===== SIGNATURES ===== */
 function initSig(id){
-  var box=document.getElementById(id);if(!box)return;
-  var cv=box.querySelector('canvas'),ph=box.querySelector('.sig-placeholder');
-  var ctx=cv.getContext('2d'),dr=false;
-  function rs(){var r=box.getBoundingClientRect();cv.width=r.width;cv.height=r.height}
-  rs();window.addEventListener('resize',rs);
+  var box=document.getElementById(id);if(!box)return;var cv=box.querySelector('canvas'),ph=box.querySelector('.sig-placeholder');var ctx=cv.getContext('2d'),dr=false;
+  function rs(){var r=box.getBoundingClientRect();cv.width=r.width;cv.height=r.height}rs();window.addEventListener('resize',rs);
   function gp(e){var r=cv.getBoundingClientRect(),s=e.touches?e.touches[0]:e;return{x:s.clientX-r.left,y:s.clientY-r.top}}
   function sd(e){e.preventDefault();dr=true;if(ph)ph.style.display='none';var p=gp(e);ctx.beginPath();ctx.moveTo(p.x,p.y)}
   function mv(e){if(!dr)return;e.preventDefault();var p=gp(e);ctx.lineWidth=1.5;ctx.lineCap='round';ctx.strokeStyle='#333';ctx.lineTo(p.x,p.y);ctx.stroke()}
   function ed(){dr=false}
-  cv.addEventListener('mousedown',sd);cv.addEventListener('mousemove',mv);
-  cv.addEventListener('mouseup',ed);cv.addEventListener('mouseleave',ed);
-  cv.addEventListener('touchstart',sd,{passive:false});cv.addEventListener('touchmove',mv,{passive:false});
-  cv.addEventListener('touchend',ed);
+  cv.addEventListener('mousedown',sd);cv.addEventListener('mousemove',mv);cv.addEventListener('mouseup',ed);cv.addEventListener('mouseleave',ed);
+  cv.addEventListener('touchstart',sd,{passive:false});cv.addEventListener('touchmove',mv,{passive:false});cv.addEventListener('touchend',ed);
   box._clr=function(){ctx.clearRect(0,0,cv.width,cv.height);if(ph)ph.style.display=''}
 }
 function clrSig(id){var el=document.getElementById(id);if(el&&el._clr)el._clr()}
 
-/* ===== PDF ===== */
 function doPDF(){
-  stopRec();
-  document.getElementById('printNr').textContent=String(rNr).padStart(3,'0');
+  stopRec();document.getElementById('printNr').textContent=String(rNr).padStart(3,'0');
   document.getElementById('printDatum').textContent=document.getElementById('datum').value||'';
   document.getElementById('printBauvorhaben').textContent=document.getElementById('bauvorhaben').value||'';
-  toast('Druckdialog wird geoeffnet...');
-  setTimeout(function(){window.print();nextNr()},300);
+  toast('Druckdialog oeffnet sich...');setTimeout(function(){window.print();nextNr()},300);
 }
 
-/* ===== NEW REPORT ===== */
 function newReport(){
-  if(!confirm('Neuen Bericht starten?'))return;
-  nextNr();
-  var f=document.querySelectorAll('#content input:not([type="date"]),#content textarea');
-  for(var i=0;i<f.length;i++)f[i].value='';
+  if(!confirm('Neuen Bericht starten?'))return;nextNr();
+  var f=document.querySelectorAll('#content input:not([type="date"]),#content textarea,#content select');
+  for(var i=0;i<f.length;i++){if(f[i].tagName==='SELECT')f[i].selectedIndex=0;else f[i].value=''}
   document.getElementById('datum').value=new Date().toISOString().split('T')[0];
-  document.getElementById('personalBody').innerHTML='';
-  document.getElementById('matBody').innerHTML='';
-  document.getElementById('sumStd').textContent='0,00';
-  document.getElementById('sumTotal').textContent='0';
+  document.getElementById('personalBody').innerHTML='';document.getElementById('matBody').innerHTML='';
+  document.getElementById('sumStd').textContent='0,00';document.getElementById('sumTotal').textContent='0';
   ['sumMo','sumDi','sumMi','sumDo','sumFr'].forEach(function(id){document.getElementById(id).textContent='-'});
-  addPersonRow();addPersonRow();addPersonRow();
-  addMatRow();addMatRow();
-  clrSig('sig1');clrSig('sig2');
-  toast('Neuer Bericht Nr. '+String(rNr).padStart(3,'0'));
-  window.scrollTo(0,0);
+  addPersonRow();addPersonRow();addPersonRow();addMatRow();addMatRow();addMatRow();
+  clrSig('sig1');clrSig('sig2');toast('Neuer Bericht Nr. '+String(rNr).padStart(3,'0'));window.scrollTo(0,0);
 }
 
-/* ===== TOAST ===== */
 function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},3000)}
 
-/* ===== DATALIST ===== */
-var dl=document.createElement('datalist');dl.id='einheiten';
-['Stk','m','m\u00B2','m\u00B3','kg','l','Sack','Palette','lfm','Pauschale','t','Paar'].forEach(function(u){
-  var o=document.createElement('option');o.value=u;dl.appendChild(o);
-});
-document.body.appendChild(dl);
-
-/* ===== INIT ===== */
 document.addEventListener('DOMContentLoaded',function(){
-  showNr();
-  document.getElementById('datum').value=new Date().toISOString().split('T')[0];
-  addPersonRow();addPersonRow();addPersonRow();
-  addMatRow();addMatRow();addMatRow();
+  showNr();document.getElementById('datum').value=new Date().toISOString().split('T')[0];
+  addPersonRow();addPersonRow();addPersonRow();addMatRow();addMatRow();addMatRow();
   initSig('sig1');initSig('sig2');
 });
 </script>
